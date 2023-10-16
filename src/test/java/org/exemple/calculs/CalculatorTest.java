@@ -95,6 +95,24 @@ public class CalculatorTest {
         assertThrows(ArithmeticException.class, calculator::divide);
     }
 
+    @ParameterizedTest
+    @MethodSource("integerBooleanProvider")
+    @DisplayName("Test pair method")
+    void isPair_withMethodSourceTest(int num, boolean expectedValue) {
+
+        boolean result = Calculator.isPair(num);
+
+        assertEquals(expectedValue, result);
+    }
+
+    static Stream<Arguments> integerBooleanProvider() {
+        return Stream.of(
+                Arguments.arguments(4, true),
+                Arguments.arguments(1, false),
+                Arguments.arguments(3, false)
+        );
+    }
+
     static Stream<Arguments> integersProvider() {
         return Stream.of(
                 Arguments.arguments(14, 3, 11),
