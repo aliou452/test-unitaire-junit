@@ -5,6 +5,7 @@ import org.example.calculs.Calculator;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -16,7 +17,7 @@ public class CalculatorTest {
     Calculator defaultCalculator;
 
     @BeforeEach
-    void getDefaultCalculator() {
+    void init() {
         defaultCalculator = new Calculator(2, 5);
     }
 
@@ -62,5 +63,11 @@ public class CalculatorTest {
         int result = calculator.divise();
 
         assertEquals(5, result);
+    }
+
+    @Test
+    @Disabled
+    void toBeIgnore() {
+
     }
 }
