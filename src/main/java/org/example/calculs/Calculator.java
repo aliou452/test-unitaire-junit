@@ -15,7 +15,7 @@ public class Calculator {
         return num1 + num2;
     }
 
-    public int divise() {
+    public int divide() {
         return num1 / num2;
     }
 

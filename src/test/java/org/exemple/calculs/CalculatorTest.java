@@ -4,10 +4,7 @@ package org.exemple.calculs;
 import org.example.calculs.Calculator;
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -64,7 +61,7 @@ public class CalculatorTest {
     void diviseTest() {
         Calculator calculator = new Calculator(20, 4);
 
-        int result = calculator.divise();
+        int result = calculator.divide();
 
         assertEquals(5, result);
     }
@@ -84,12 +81,18 @@ public class CalculatorTest {
 
     @ParameterizedTest
     @MethodSource("integersProvider")
-    void substractMultipleTest(int num1, int num2, int expected) {
+    void subtractMultipleTest(int num1, int num2, int expected) {
 
         Calculator calculator = new Calculator(num1, num2);
         int resultat = calculator.substract();
 
         assertEquals(expected, resultat);
+    }
+
+    @Test
+    void divideByZero() {
+        Calculator calculator = new Calculator(10, 0);
+        assertThrows(ArithmeticException.class, calculator::divide);
     }
 
     static Stream<Arguments> integersProvider() {
