@@ -4,6 +4,9 @@ package org.exemple.calculs;
 import org.example.calculs.Calculator;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
 
 public class CalculatorTest {
 
@@ -29,6 +32,15 @@ public class CalculatorTest {
         String expectedValue = "num1:2; num2:8";
 
         assertEquals(expectedValue, string);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {1, 2, 3, 4, 5})
+    void isPairTest(int num) {
+
+        boolean result = Calculator.isPair(num);
+
+        assertEquals(num%2 == 0, result);
     }
 
     @Test

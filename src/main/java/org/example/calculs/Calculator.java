@@ -19,6 +19,10 @@ public class Calculator {
         return num1 / num2;
     }
 
+    public static boolean isPair(int num) {
+        return num % 2 == 0;
+    }
+
     @Override
     public String toString() {
         return "num1:" + num1 + "; num2:" + num2;
