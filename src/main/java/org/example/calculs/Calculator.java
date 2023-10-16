@@ -1,18 +1,22 @@
 package org.example.calculs;
 
-public class Add {
+public class Calculator {
 
     int num1;
     int num2;
 
 
-    public Add(int num1, int num2) {
+    public Calculator(int num1, int num2) {
         this.num1 = num1;
         this.num2 = num2;
     }
 
-    public int addTwoNumbers() {
+    public int add() {
         return num1 + num2;
+    }
+
+    public int divise() {
+        return num1 / num2;
     }
 
     @Override
