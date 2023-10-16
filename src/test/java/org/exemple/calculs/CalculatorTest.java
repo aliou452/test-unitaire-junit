@@ -9,7 +9,11 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
+
+import java.util.stream.Stream;
 
 @DisplayName("Class for testing Calculator")
 public class CalculatorTest {
@@ -68,6 +72,33 @@ public class CalculatorTest {
     @Test
     @Disabled
     void toBeIgnore() {
-
     }
+
+    @Test
+    void substractTest() {
+        Calculator calculator = new Calculator(17, 4);
+        int resultat = calculator.substract();
+
+        assertEquals(13, resultat);
+    }
+
+    @ParameterizedTest
+    @MethodSource("integersProvider")
+    void substractMultipleTest(int num1, int num2, int expected) {
+
+        Calculator calculator = new Calculator(num1, num2);
+        int resultat = calculator.substract();
+
+        assertEquals(expected, resultat);
+    }
+
+    static Stream<Arguments> integersProvider() {
+        return Stream.of(
+                Arguments.arguments(14, 3, 11),
+                Arguments.arguments(11, 9, 2),
+                Arguments.arguments(5, 1, 4),
+                Arguments.arguments(70, 40, 30)
+        );
+    }
+
 }

@@ -23,6 +23,10 @@ public class Calculator {
         return num % 2 == 0;
     }
 
+    public int substract() {
+        return num1 - num2;
+    }
+
     @Override
     public String toString() {
         return "num1:" + num1 + "; num2:" + num2;
